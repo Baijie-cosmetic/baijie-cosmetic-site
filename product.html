@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Baijie Cosmetic Factory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        .lux-border { border-color: #f3f4f6; }
+        .lux-bg { background-color: #f9fafb; }
+        .btn-gold { background-color: #000; color: #fff; transition: all 0.3s; }
+        .btn-gold:hover { background-color: #374151; }
+        .table-header { background-color: #f9fafb; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+        .sticky-nav { background: rgba(255, 255, 255, 0.9); backdrop-blur: 10px; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header Navigation -->
+    <nav class="sticky top-0 z-50 border-b border-gray-100 sticky-nav">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/logo.png" alt="Baijie Logo" class="h-8">
+                    <span class="ml-3 font-bold text-lg tracking-tight uppercase">Baijie <span class="text-[#ad8d68]">Cosmetic</span></span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest">
+                <a href="index.html#home" class="hover:text-[#ad8d68]">Home</a>
+                <a href="index.html#products" class="hover:text-[#ad8d68]">Products</a>
+                <a href="catalog.html" class="hover:text-[#ad8d68]">Catalog</a>
+                <a id="nav-wa" href="#" target="_blank" class="bg-black text-white px-5 py-2 rounded-sm hover:bg-[#ad8d68] transition">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="lux-bg py-4 border-b border-gray-100">
+        <div class="container mx-auto px-6 text-[10px] uppercase tracking-widest text-gray-400 font-bold">
+            <a href="index.html" class="hover:text-gray-900">Home</a> <span class="mx-2">/</span> 
+            <a href="index.html#products" class="hover:text-gray-900">Collection</a> <span class="mx-2">/</span> 
+            <span id="breadcrumb-current" class="text-gray-900">Product</span>
+        </div>
+    </div>
+
+    <!-- Hero Product Section -->
+    <section class="py-12 md:py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row gap-16 items-start">
+            <!-- Image Gallery -->
+            <div class="md:w-1/2 w-full">
+                <div class="rounded-lg overflow-hidden bg-gray-50 border border-gray-100">
+                    <img id="p-main-img" src="" alt="Product" class="w-full h-auto object-cover aspect-square">
+                </div>
+            </div>
+
+            <!-- Product Summary -->
+            <div class="md:w-1/2 w-full">
+                <div class="mb-6">
+                    <span id="p-tag" class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#ad8d68] mb-2 block">Direct Factory Wholesale</span>
+                    <h1 id="p-title" class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 uppercase"></h1>
+                    <p id="p-short-desc" class="text-gray-500 text-lg leading-relaxed mb-8"></p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
+                    <a id="p-wa-btn" href="#" target="_blank" class="w-full bg-black text-white py-5 text-center font-bold uppercase tracking-widest hover:bg-[#ad8d68] transition shadow-xl">
+                        <i class="fab fa-whatsapp mr-3"></i> Get a Factory Quote
+                    </a>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="py-3 border lux-border rounded-sm"><p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Response</p><p class="text-[11px] font-bold uppercase">Within 24h</p></div>
+                        <div class="py-3 border lux-border rounded-sm"><p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Samples</p><p class="text-[11px] font-bold uppercase">Available</p></div>
+                        <div class="py-3 border lux-border rounded-sm"><p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Shipping</p><p class="text-[11px] font-bold uppercase">Worldwide</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications & Details -->
+    <section class="py-20 border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- Specifications Table -->
+            <div class="mb-20">
+                <h2 class="text-2xl font-bold uppercase tracking-widest mb-10 text-center">Technical Specifications</h2>
+                <div class="overflow-x-auto border border-gray-100 rounded-sm">
+                    <table class="w-full text-left text-sm">
+                        <tbody id="p-specs-table"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Wholesale Pricing Tier -->
+            <div class="mb-20">
+                <h2 class="text-2xl font-bold uppercase tracking-widest mb-10 text-center">Wholesale Pricing</h2>
+                <div class="overflow-x-auto border border-gray-100 rounded-sm">
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="table-header">
+                                <th class="px-6 py-4 border-b">Order Quantity</th>
+                                <th class="px-6 py-4 border-b">Price Per Unit (USD)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="p-pricing-tiers"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-20 text-center md:text-left">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-12">
+                <div><h3 class="text-xl font-bold uppercase mb-6">Baijie <span class="text-[#ad8d68]">Cosmetic</span></h3><p class="text-gray-400 text-sm">Professional B2B Skincare & Tanning Manufacturer.</p></div>
+                <div><h4 class="text-xs uppercase tracking-widest text-gray-500 mb-6">Contact</h4><p class="text-sm text-gray-400">WA: +86 156 2627 4496</p></div>
+                <div><h4 class="text-xs uppercase tracking-widest text-gray-500 mb-6">Location</h4><p class="text-sm text-gray-400">Guangzhou, China</p></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function getHighRes(url) { return url.split('_')[0].split('.jpg')[0] + '.jpg'; }
+
+        const products = {
+            "tea-tree-soap": {
+                title: "Tea Tree Essential Oil Soap Bar",
+                shortDesc: "Professional grade facial and body cleansing soap with organic tea tree extract for intensive oil control.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H82902ebe1e0a4bceb1782a0873a48979v/Skin-Care-Tea-Tree-Essential-Oil-Soap.jpg",
+                specs: { "Product Name": "Tea Tree Oil Soap", "Ingredients": "Tea Tree, Glycerin", "MOQ": "1000 Units", "Certification": "ISO, GMP" },
+                pricing: [["1,000 - 4,999", "$1.30"], ["5,000 - 9,999", "$1.15"], ["10,000+", "$0.95"]]
+            },
+            "turmeric-soap": {
+                title: "Exfoliating Turmeric & Vitamin C Soap",
+                shortDesc: "Brighten and rejuvenate skin with our herbal turmeric soap infused with pure Vitamin C.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Hdc341e5bf4fa4cc9a17d2325035e713eL/Custom-Exfoliating-Turmeric-and-Vitamin-C-Herbal.jpg",
+                specs: { "Product Name": "Turmeric & Vit C Soap", "MOQ": "1000 Units", "Benefits": "Brightening, Exfoliating", "Lead Time": "15 Days" },
+                pricing: [["1,000 - 2,999", "$0.98"], ["3,000 - 9,999", "$0.85"], ["10,000+", "$0.69"]]
+            },
+            "tanning-gel": {
+                title: "100ml Intensive Extreme Self Tanning Gel",
+                shortDesc: "Advanced clear gel formula for rapid tanning intensification with zero greasy residue.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Aa28af1a15eb44da0892e4546d41e10c5N/Wholesale-Custom-Logo-100ml-Intensive-Extreme-Clear.jpg",
+                specs: { "Volume": "100ml", "Formula": "Clear Gel", "MOQ": "500 Units", "Lead Time": "10-15 Days" },
+                pricing: [["500 - 1,999", "$3.00"], ["2,000 - 4,999", "$2.80"], ["5,000+", "$2.50"]]
+            },
+            "orange-loofah-soap": {
+                title: "Handmade 2-in-1 Orange Loofah Soap",
+                shortDesc: "Organic handmade soap with built-in loofah for deep exfoliation and refreshing orange scent.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Hfc6bdb51a0a648f18bc135d19f75fa29W/Handmade-Natural-100g-2-in-1-Orange.jpg",
+                specs: { "Weight": "100g", "MOQ": "2 Units", "Lead Time": "3-7 Days", "Benefits": "Exfoliating, Cleansing" },
+                pricing: [["2+", "$1.20"]]
+            },
+            "tanning-accelerator": {
+                title: "Sunbed Tanning Accelerator Cream",
+                shortDesc: "Intensive tanning accelerator cream for sunbed use. Formulated for fast and ultra dark tanning results.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Hc887d6ae1f194dc28a1f5756108cc09bb/Private-Label-Sunbed-Tanning-Lotion-Intensive-Tanning.jpg",
+                specs: { "Type": "Cream / Gel", "MOQ": "3 Units", "Shade": "Ultra Dark", "Lead Time": "7-15 Days" },
+                pricing: [["3+", "$2.80 - $3.80"]]
+            },
+            "tanning-drops": {
+                title: "Extreme Intensive Tanning Drops",
+                shortDesc: "Sunless bubblegum scented self-tanning drops for water-based applications and skin darkening.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H7bbff41203fc41bdb008c777b93cfa69C/Private-Label-Extreme-Intensive-Oral-Tan-Drops.jpg",
+                specs: { "Volume": "10ml", "MOQ": "10 Units", "Formula": "Bubblegum", "Lead Time": "7-15 Days" },
+                pricing: [["10 - 499", "$3.51"], ["500 - 999", "$3.00"], ["1,000 - 1,999", "$2.73"], ["2,000+", "$2.34"]]
+            },
+            "hair-wax-stick": {
+                title: "Women's Daily Hair Wax Stick",
+                shortDesc: "Natural hair wax stick with extreme hold pomade for edge control and daily styling.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Hecfa81857f574d23ac63dd9ef1baccf0E/Custom-Logo-Natural-Women-s-Daily-Hair.jpg",
+                specs: { "Weight": "75g", "MOQ": "5 Units", "Hold": "Extreme Hold", "Lead Time": "5-7 Days" },
+                pricing: [["5 - 199", "$1.90"], ["200 - 999", "$1.80"], ["1,000 - 9,999", "$1.60"], ["10,000+", "$1.35"]]
+            },
+            "honey-soap": {
+                title: "Honey Tea Tree Whitening Soap",
+                shortDesc: "Wholesale handmade honey glow soap bar to remove dark spots and acne for a glowing skin.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Ha241d41f6465445c96d9b688e731f5ddO/Handmade-Honey-Tea-Tree-Lavender-Whitening-Bath.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Benefits": "Whitening, Anti-Acne", "Lead Time": "5-7 Days" },
+                pricing: [["10 - 99", "$0.88"], ["100 - 999", "$0.85"], ["1,000 - 4,999", "$0.80"], ["5,000+", "$0.69"]]
+            },
+            "papaya-soap": {
+                title: "Papaya & Kojic Acid Whitening Soap",
+                shortDesc: "Professional lightening soap with papaya and kojic acid for dark knuckles and skin brightening.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/He95415a3b1844d7cbc82a265f6e3eecbK/Wholesale-Whitening-Lightening-Papaya-and-Kojic-Acid.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Ingredients": "Papaya, Kojic Acid", "Lead Time": "5-7 Days" },
+                pricing: [["10 - 199", "$0.93"], ["200 - 499", "$0.90"], ["500 - 999", "$0.85"], ["1,000+", "$0.81"]]
+            },
+            "organic-loofah-soap": {
+                title: "Handmade Organic Loofah Soap Bar",
+                shortDesc: "Private label essential oil whitening soap with natural organic loofah inside for effective cleansing.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H1b5b6379a2794a2d8e79df28bb1855036/No-Logo-100g-Handmade-Organic-Loofah-Soap.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Ingredients": "Essential Oil, Loofah", "Lead Time": "5-7 Days" },
+                pricing: [["10 - 99", "$0.85"], ["100 - 999", "$0.82"], ["1,000 - 4,999", "$0.76"], ["5,000+", "$0.68"]]
+            },
+            "tanning-lotion": {
+                title: "200g Instant Intensive Tanning Lotion",
+                shortDesc: "Self body tanning lotion accelerator cream for sunbeds, delivering an instant and ultra dark bronze tan.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H1d1ec151c3744bf68567b33c0b9291bak/200g-Sun-Bed-Instant-Intensive-Tanning-Lotion.jpg",
+                specs: { "Weight": "200g", "MOQ": "200 Units", "Type": "Lotion", "Lead Time": "7-15 Days" },
+                pricing: [["200 - 499", "$4.80"], ["500 - 999", "$4.30"], ["1,000+", "$4.00"]]
+            },
+            "yoni-soap": {
+                title: "Handmade Herbal Pink Yoni Soap",
+                shortDesc: "Bulk handmade herbal pink soap bar for personal healthcare and feminine nourishing care.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/He2a1e028aa1d4ca0b9346ba6513d35aag/Wholesale-Bulk-Handmade-Herbal-Pink-Yoni-Soap.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Type": "Herbal Soap", "Lead Time": "5-7 Days" },
+                pricing: [["10+", "$1.20"]]
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const p = products[id] || products["tea-tree-soap"];
+
+        document.getElementById('breadcrumb-current').innerText = p.title;
+        document.getElementById('p-title').innerText = p.title;
+        document.getElementById('p-short-desc').innerText = p.shortDesc;
+        document.getElementById('p-main-img').src = getHighRes(p.mainImg);
+        const waLink = `https://api.whatsapp.com/send?phone=8615626274496&text=B2B%20Inquiry%20for%3A%20${encodeURIComponent(p.title)}`;
+        document.getElementById('p-wa-btn').href = waLink;
+        document.getElementById('nav-wa').href = waLink;
+
+        const specsTable = document.getElementById('p-specs-table');
+        Object.entries(p.specs).forEach(([key, val]) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td class="px-6 py-4 font-bold border-b border-gray-50 bg-gray-50 w-1/3">${key}</td><td class="px-6 py-4 border-b border-gray-50">${val}</td>`;
+            specsTable.appendChild(row);
+        });
+
+        const pricingTiers = document.getElementById('p-pricing-tiers');
+        p.pricing.forEach(([qty, price]) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td class="px-6 py-4 border-b border-gray-50 font-semibold text-gray-700">${qty}</td><td class="px-6 py-4 border-b border-gray-50 text-[#ad8d68] font-bold">${price}</td>`;
+            pricingTiers.appendChild(row);
+        });
+    </script>
+</body>
+</html>
