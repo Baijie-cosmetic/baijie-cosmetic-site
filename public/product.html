@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Details | Aochuang Cosmetic Factory</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        .lux-border { border-color: #f3f4f6; }
+        .lux-bg { background-color: #f9fafb; }
+        .btn-gold { background-color: #000; color: #fff; transition: all 0.3s; }
+        .btn-gold:hover { background-color: #374151; }
+        .table-header { background-color: #f9fafb; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+        .sticky-nav { background: rgba(255, 255, 255, 0.9); backdrop-blur: 10px; }
+        #wa-follower { position: fixed; pointer-events: none; background: #25D366; color: white; padding: 5px 12px; border-radius: 4px; font-size: 13px; font-weight: bold; z-index: 999999; display: none; white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .wa-float { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 999998; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+    </style>
+
+<style id="v29-product-cleanup-css">
+.v27-point{min-height:auto!important;padding:28px 30px!important;display:flex!important;align-items:center!important;gap:14px!important;}
+.v27-point span{flex:0 0 auto;}
+.v27-point h3{margin:0!important;font-size:18px!important;line-height:1.35!important;}
+.v27-point p{display:none!important;}
+.v27-card-grid{gap:22px!important;}
+.v27-table th,.v27-table td{text-align:left!important;}
+.v27-table th:first-child,.v27-table td:first-child{width:100%!important;}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navbar -->
+<nav class="sticky-nav sticky top-0 z-50 border-b border-gray-100">
+<div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+<div class="flex items-center">
+<a class="flex items-center" href="index.html">
+<img alt="Logo" class="h-10" decoding="async" src="assets/images/logo-v2.png?v=2" style="height: 80px; width: auto;"/>
+<span class="ml-3 font-bold text-lg tracking-tight uppercase">Aochuang <span class="text-[#ad8d68]">Cosmetic</span></span>
+</a>
+</div>
+<div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-gray-500">
+<a class="hover:text-[#ad8d68] transition" href="index.html">Home</a>
+<a class="hover:text-[#ad8d68] transition" href="index.html#products">Products</a>
+<a class="hover:text-[#ad8d68] transition" href="catalog.html">Catalog</a>
+</div>
+<a class="bg-black text-white px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-[#ad8d68] transition" href="#" id="nav-wa" target="_blank">
+                Inquire Now
+            </a>
+</div>
+</nav>
+<!-- Product Detail Section -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Left: Product Image -->
+<div class="lg:w-1/2">
+<div class="bg-gray-50 rounded-2xl overflow-hidden aspect-square flex items-center justify-center p-12 border border-gray-100 shadow-sm">
+<img alt="Product" class="max-w-full max-h-full object-contain mix-blend-multiply" decoding="async" id="p-main-img" loading="lazy" src=""/>
+</div>
+</div>
+<!-- Right: Product Info -->
+<div class="lg:w-1/2 flex flex-col justify-center">
+<nav class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-6 flex items-center">
+<a class="hover:text-black" href="index.html">Home</a>
+<span class="mx-3 text-gray-200">/</span>
+<a class="hover:text-black" href="index.html#products">Products</a>
+<span class="mx-3 text-gray-200">/</span>
+<span class="text-black" id="breadcrumb-current">Details</span>
+</nav>
+<h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight" id="p-title">Loading Product...</h1>
+<p class="text-gray-500 text-lg mb-8 leading-relaxed" id="p-short-desc">Please wait while we fetch product details.</p>
+<!-- B2B Specs -->
+<div class="mb-10">
+<h3 class="text-xs font-bold uppercase tracking-widest text-[#ad8d68] mb-4 border-b border-gray-100 pb-2">Technical Specifications</h3>
+<table class="w-full text-sm">
+<tbody id="p-specs-table">
+<!-- Specs will be injected here -->
+</tbody>
+</table>
+</div>
+<!-- B2B Pricing Table -->
+<div class="mb-10">
+<h3 class="text-xs font-bold uppercase tracking-widest text-[#ad8d68] mb-4 border-b border-gray-100 pb-2">Wholesale Pricing (Tiered)</h3>
+<div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-100">
+<table class="w-full text-sm">
+<thead>
+<tr class="table-header">
+<th class="px-6 py-4 border-b text-left">Order Quantity</th>
+<th class="px-6 py-4 border-b text-left">Unit Price (USD)</th>
+</tr>
+</thead>
+<tbody id="p-pricing-tiers">
+<!-- Pricing will be injected here -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- CTA Button -->
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<a class="flex-1 bg-black text-white text-center py-5 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-[#ad8d68] transition-all shadow-lg hover:shadow-xl active:scale-[0.98]" href="#" id="p-wa-btn" target="_blank">
+<i class="fab fa-whatsapp mr-2 text-lg align-middle"></i> Start B2B Inquiry
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t py-12 px-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+<div class="mb-6 md:mb-0">
+<div class="flex items-center">
+<img alt="Logo" class="h-10" decoding="async" src="assets/images/logo-v2.png?v=2" style="height: 80px; width: auto;"/>
+</div>
+<p class="text-gray-500 mt-2 text-sm max-w-xs">Your trusted manufacturing partner for beauty &amp; personal care products.</p>
+</div>
+<div class="text-center md:text-right">
+<p class="text-gray-600 font-medium">Contact Us</p>
+<p class="text-gray-500 text-sm mt-1">Gianna@aochuangcosmetic.com | +86 156 2627 4496</p>
+<p class="text-gray-400 text-xs mt-4">© Aochuang Cosmetic. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+<div id="wa-follower">WA: +8615626274496</div>
+<a class="wa-float" href="https://api.whatsapp.com/send?phone=8615626274496" target="_blank">
+<svg fill="white" height="35" viewbox="0 0 24 24" width="35"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.483 8.413-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.308 1.654zm6.757-4.015c1.435.851 3.059 1.304 4.718 1.305 5.178 0 9.389-4.211 9.39-9.39.001-2.51-.975-4.87-2.747-6.645-1.772-1.773-4.133-2.749-6.643-2.749-5.178 0-9.389-4.211-9.39 9.39 0 1.765.489 3.487 1.415 4.973l-.942 3.441 3.525-.924zm10.973-5.263c-.27-.135-1.595-.786-1.841-.876-.246-.09-.425-.135-.605.135-.18.27-.695.876-.851 1.056-.156.18-.311.202-.58.067-.27-.135-1.14-.421-2.172-1.342-.803-.715-1.345-1.598-1.503-1.868-.158-.27-.017-.417.118-.552.122-.121.27-.315.405-.472.135-.157.18-.27.27-.45.09-.18.045-.337-.022-.472-.067-.135-.605-1.458-.828-2.002-.218-.53-.44-.457-.605-.465-.156-.006-.334-.007-.513-.007-.179 0-.472.067-.719.337-.247.27-.943.923-.943 2.25s.965 2.61 1.1 2.79c.135.18 1.898 2.897 4.599 4.067.643.279 1.144.446 1.534.57.646.205 1.234.176 1.698.107.518-.077 1.595-.652 1.82-1.282.225-.63.225-1.17.157-1.282-.067-.113-.247-.18-.517-.315z"></path></svg>
+</a>
+<script>
+        const follower = document.getElementById('wa-follower');
+        document.addEventListener('mousemove', (e) => {
+            follower.style.left = e.clientX + 15 + 'px';
+            follower.style.top = e.clientY + 15 + 'px';
+            follower.style.display = 'block';
+        });
+        document.addEventListener('mouseleave', () => {
+            follower.style.display = 'none';
+        });
+
+        function getHighRes(url) { return url.replace('_200x200.jpg', '_q90.jpg'); }
+
+        const products = {
+            "tea-tree-soap": {
+                title: "Skin Care Tea Tree Essential Oil Soap",
+                shortDesc: "Natural handmade tea tree oil soap for deep cleansing and skin therapy. Ideal for acne-prone and sensitive skin.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H82902ebe1e0a4bceb1782a0873a48979v/Skin-Care-Tea-Tree-Essential-Oil-Soap.jpg",
+                specs: { "Weight": "100g", "MOQ": "2 Units", "Lead Time": "3-7 Days", "Usage": "Face / Body" },
+                pricing: [["2 - 49", "$2.80"], ["50 - 199", "$1.80"], ["200 - 499", "$1.50"], ["500+", "$1.30"]]
+            },
+            "tanning-gel": {
+                title: "Intensive Extreme Clear Tanning Gel",
+                shortDesc: "Wholesale custom logo 100ml tanning gel for sunbed and sunless tanning. Achieve an intensive, extreme dark bronze tan.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Aa28af1a15eb44da0892e4546d41e10c5N/Wholesale-Custom-Logo-100ml-Intensive-Extreme-Clear.jpg",
+                specs: { "Volume": "100ml", "MOQ": "1 Unit", "Type": "Gel", "Lead Time": "5-10 Days" },
+                pricing: [["1 - 49", "$3.51"], ["50 - 199", "$3.00"], ["200 - 499", "$2.73"], ["500+", "$2.34"]]
+            },
+            "orange-loofah-soap": {
+                title: "Handmade 2-in-1 Orange Loofah Soap",
+                shortDesc: "Organic handmade soap with built-in loofah for deep exfoliation and refreshing orange scent.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Hfc6bdb51a0a648f18bc135d19f75fa29W/Handmade-Natural-100g-2-in-1-Orange.jpg",
+                specs: { "Weight": "100g", "MOQ": "2 Units", "Lead Time": "3-7 Days", "Benefits": "Exfoliating, Cleansing" },
+                pricing: [["2+", "$1.20"]]
+            },
+            "tanning-accelerator": {
+                title: "Sunbed Tanning Accelerator Cream",
+                shortDesc: "Intensive tanning accelerator cream for sunbed use. Formulated for fast and ultra dark tanning results.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Hc887d6ae1f194dc28a1f5756108cc09bb/Private-Label-Sunbed-Tanning-Lotion-Intensive-Tanning.jpg",
+                specs: { "Type": "Cream / Gel", "MOQ": "3 Units", "Shade": "Ultra Dark", "Lead Time": "7-15 Days" },
+                pricing: [["3+", "$2.80 - $3.80"]]
+            },
+            "tanning-drops": {
+                title: "Extreme Intensive Tanning Drops",
+                shortDesc: "Sunless bubblegum scented self-tanning drops for water-based applications and skin darkening.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H7bbff41203fc41bdb008c777b93cfa69C/Private-Label-Extreme-Intensive-Oral-Tan-Drops.jpg",
+                specs: { "Volume": "10ml", "MOQ": "10 Units", "Formula": "Bubblegum", "Lead Time": "7-15 Days" },
+                pricing: [["10 - 499", "$3.51"], ["500 - 999", "$3.00"], ["1,000 - 1,999", "$2.73"], ["2,000+", "$2.34"]]
+            },
+            "hair-wax-stick": {
+                title: "Women's Daily Hair Wax Stick",
+                shortDesc: "Natural hair wax stick with extreme hold pomade for edge control and daily styling.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Hecfa81857f574d23ac63dd9ef1baccf0E/Custom-Logo-Natural-Women-s-Daily-Hair.jpg",
+                specs: { "Weight": "75g", "MOQ": "5 Units", "Hold": "Extreme Hold", "Lead Time": "5-7 Days" },
+                pricing: [["5 - 199", "$1.90"], ["200 - 999", "$1.80"], ["1,000 - 9,999", "$1.60"], ["10,000+", "$1.35"]]
+            },
+            "honey-soap": {
+                title: "Honey Tea Tree Whitening Soap",
+                shortDesc: "Wholesale handmade honey glow soap bar to remove dark spots and acne for a glowing skin.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/Ha241d41f6465445c96d9b688e731f5ddO/Handmade-Honey-Tea-Tree-Lavender-Whitening-Bath.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Benefits": "Whitening, Anti-Acne", "Lead Time": "5-7 Days" },
+                pricing: [["10 - 99", "$0.88"], ["100 - 999", "$0.85"], ["1,000 - 4,999", "$0.80"], ["5,000+", "$0.69"]]
+            },
+            "papaya-soap": {
+                title: "Papaya & Kojic Acid Whitening Soap",
+                shortDesc: "Professional lightening soap with papaya and kojic acid for dark knuckles and skin brightening.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/He95415a3b1844d7cbc82a265f6e3eecbK/Wholesale-Whitening-Lightening-Papaya-and-Kojic-Acid.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Ingredients": "Papaya, Kojic Acid", "Lead Time": "5-7 Days" },
+                pricing: [["10 - 199", "$0.93"], ["200 - 499", "$0.90"], ["500 - 999", "$0.85"], ["1,000+", "$0.81"]]
+            },
+            "organic-loofah-soap": {
+                title: "Handmade Organic Loofah Soap Bar",
+                shortDesc: "Private label essential oil whitening soap with natural organic loofah inside for effective cleansing.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H1b5b6379a2794a2d8e79df28bb1855036/No-Logo-100g-Handmade-Organic-Loofah-Soap.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Ingredients": "Essential Oil, Loofah", "Lead Time": "5-7 Days" },
+                pricing: [["10 - 99", "$0.85"], ["100 - 999", "$0.82"], ["1,000 - 4,999", "$0.76"], ["5,000+", "$0.68"]]
+            },
+            "tanning-lotion": {
+                title: "200g Instant Intensive Tanning Lotion",
+                shortDesc: "Self body tanning lotion accelerator cream for sunbeds, delivering an instant and ultra dark bronze tan.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/H1d1ec151c3744bf68567b33c0b9291bak/200g-Sun-Bed-Instant-Intensive-Tanning-Lotion.jpg",
+                specs: { "Weight": "200g", "MOQ": "200 Units", "Type": "Lotion", "Lead Time": "7-15 Days" },
+                pricing: [["200 - 499", "$4.80"], ["500 - 999", "$4.30"], ["1,000+", "$4.00"]]
+            },
+            "yoni-soap": {
+                title: "Handmade Herbal Pink Yoni Soap",
+                shortDesc: "Bulk handmade herbal pink soap bar for personal healthcare and feminine nourishing care.",
+                mainImg: "https://s.alicdn.com/@sc04/kf/He2a1e028aa1d4ca0b9346ba6513d35aag/Wholesale-Bulk-Handmade-Herbal-Pink-Yoni-Soap.jpg",
+                specs: { "Weight": "100g", "MOQ": "10 Units", "Type": "Herbal Soap", "Lead Time": "5-7 Days" },
+                pricing: [["10+", "$1.20"]]
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const p = products[id] || products["tea-tree-soap"];
+
+        document.getElementById('breadcrumb-current').innerText = p.title;
+        document.getElementById('p-title').innerText = p.title;
+        document.getElementById('p-short-desc').innerText = p.shortDesc;
+        document.getElementById('p-main-img').src = getHighRes(p.mainImg);
+        const waLink = `https://api.whatsapp.com/send?phone=8615626274496&text=B2B%20Inquiry%20for%3A%20${encodeURIComponent(p.title)}`;
+        document.getElementById('p-wa-btn').href = waLink;
+        document.getElementById('nav-wa').href = waLink;
+
+        const specsTable = document.getElementById('p-specs-table');
+        Object.entries(p.specs).forEach(([key, val]) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td class="px-6 py-4 font-bold border-b border-gray-50 bg-gray-50 w-1/3">${key}</td><td class="px-6 py-4 border-b border-gray-50">${val}</td>`;
+            specsTable.appendChild(row);
+        });
+
+        const pricingTiers = document.getElementById('p-pricing-tiers');
+        p.pricing.forEach(([qty, price]) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td class="px-6 py-4 border-b border-gray-50 font-semibold text-gray-700">${qty}</td><td class="px-6 py-4 border-b border-gray-50 text-[#ad8d68] font-bold">${price}</td>`;
+            pricingTiers.appendChild(row);
+        });
+    </script>
+</body>
+</html>

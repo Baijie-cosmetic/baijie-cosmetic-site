@@ -1,0 +1,33 @@
+name: Deploy Aochuang website
+on:
+  push:
+    branches: [codex/aochuang-production-release]
+permissions:
+  contents: read
+concurrency:
+  group: baijie-site-deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Wrangler
+        run: npm install --no-save --no-package-lock wrangler@4.165.0
+      - name: Upload and deploy static assets
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_ACCOUNT_ID" && test -n "$CLOUDFLARE_API_TOKEN"
+          export WRANGLER_OUTPUT_FILE_PATH="$RUNNER_TEMP/wrangler-upload.jsonl"
+          ./node_modules/.bin/wrangler versions upload --keep-vars
+          version=$(jq -er 'select(.type == "version-upload" and .worker_name == "baijie-site") | .version_id' "$WRANGLER_OUTPUT_FILE_PATH")
+          unset WRANGLER_OUTPUT_FILE_PATH
+          ./node_modules/.bin/wrangler versions deploy "${version}@100%" --yes
