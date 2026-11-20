@@ -26,6 +26,16 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$CLOUDFLARE_ACCOUNT_ID" && test -n "$CLOUDFLARE_API_TOKEN"
+          account="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
+          if [[ "$account" =~ ^https://dash\.cloudflare\.com/([0-9a-fA-F]{32})(/|$) ]]; then
+            account="${BASH_REMATCH[1]}"
+          fi
+          if [[ "$account" =~ ^[0-9a-fA-F]{32}$ ]]; then
+            export CLOUDFLARE_ACCOUNT_ID="$account"
+          else
+            echo "Configured account ID is not a 32-character hexadecimal value. Trying Wrangler account discovery."
+            unset CLOUDFLARE_ACCOUNT_ID
+          fi
           export WRANGLER_OUTPUT_FILE_PATH="$RUNNER_TEMP/wrangler-upload.jsonl"
           ./node_modules/.bin/wrangler versions upload --keep-vars
           version=$(jq -er 'select(.type == "version-upload" and .worker_name == "baijie-site") | .version_id' "$WRANGLER_OUTPUT_FILE_PATH")
