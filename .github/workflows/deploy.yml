@@ -40,4 +40,12 @@ jobs:
           ./node_modules/.bin/wrangler versions upload --keep-vars
           version=$(jq -er 'select(.type == "version-upload" and .worker_name == "baijie-site") | .version_id' "$WRANGLER_OUTPUT_FILE_PATH")
           unset WRANGLER_OUTPUT_FILE_PATH
-          ./node_modules/.bin/wrangler versions deploy "${version}@100%" --yes
+          # A newly uploaded version can take time to become available for deployment.
+          for delay in 10 20 30; do
+            sleep "$delay"
+            if ./node_modules/.bin/wrangler versions deploy "${version}@100%" --yes 2>&1 | tee "$RUNNER_TEMP/wrangler-deploy.log"; then
+              exit 0
+            fi
+            grep -Fq 'code: 100146' "$RUNNER_TEMP/wrangler-deploy.log" || exit 1
+          done
+          exit 1
