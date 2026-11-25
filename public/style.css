@@ -988,8 +988,7 @@ footer .nav-logo-link img {
   .hero.hero-image-only{margin-bottom:42px;}
 }
 
-/* V21 performance optimization */
-.section, .manufacturing, .contact, .cases, .certs { content-visibility: auto; contain-intrinsic-size: 1px 700px; }
+/* Performance: avoid placeholder-size layout shifts on mobile. Keep images responsive. */
 img { max-width: 100%; height: auto; }
 
 
