@@ -1547,3 +1547,49 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 640px) {
   .hero.hero-image-only { margin-bottom: 42px; }
 }
+
+
+/* Performance pass: reserve image geometry and avoid downloading the hero twice. */
+.hero.hero-image-only{
+  display:block;
+  min-height:0;
+  padding:0;
+  background-color:#fff;
+  background-image:none!important;
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:contain;
+  aspect-ratio:1855 / 848;
+  overflow:hidden;
+}
+.hero.hero-image-only > .hero-banner-image{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none!important;
+  aspect-ratio:1855 / 848;
+  object-fit:contain;
+}
+@media(max-width:640px){
+  .hero.hero-image-only{
+    min-height:0;
+    aspect-ratio:1855 / 848;
+    background-image:none!important;
+  }
+}
+.mobile-category-card{
+  aspect-ratio:513 / 409;
+}
+.mobile-category-card img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:513 / 409;
+  object-fit:cover;
+}
+.enterprise-honor-image-section img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:1920 / 1508;
+}
