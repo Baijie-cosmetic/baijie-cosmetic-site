@@ -35,7 +35,7 @@ footer .nav-logo-link img {
   min-height:0;
   padding:0;
   background-color:#fff;
-  background-image:url("assets/images/hero-banner-original.jpg");
+  background-image:url("assets/images/hero-banner.webp");
   background-repeat:no-repeat;
   background-position:center top;
   background-size:contain;
@@ -1413,7 +1413,7 @@ img { max-width: 100%; height: auto; }
 /* V35.2 homepage banner and enterprise honor image update */
 .hero.hero-image-only{
   aspect-ratio:1855 / 848 !important;
-  background-image:url("assets/images/hero-banner-original.jpg") !important;
+  background-image:url("assets/images/hero-banner.webp") !important;
   background-size:contain !important;
   background-position:center top !important;
   background-repeat:no-repeat !important;
